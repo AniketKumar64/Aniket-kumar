@@ -10,8 +10,7 @@ import Toggle from "@/features/theme-toggle";
 export default function Home() {
   return (
      <main>
-      <Toggle/>
-      <Navbar/>
+
       <Hero />
       <About />
       <SkillsSection />

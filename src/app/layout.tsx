@@ -4,6 +4,8 @@ import { Toaster } from "sonner";
 import "./globals.css";
 import { Providers } from "@/features/theme-provider";
 import ClientLayout from "@/features/LayoutLoading";
+import Navbar from "@/components/Navbar";
+import ThemeToggle from "@/features/theme-toggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,11 +47,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="">
-       {/* <ClientLayout> */}
+       <ClientLayout>
           <Providers>
+                  <ThemeToggle/>
+                  <Navbar/>
             {children}
           </Providers>
-          {/* </ClientLayout> */}
+          </ClientLayout>
        
 
         {/* Global UI Components */}

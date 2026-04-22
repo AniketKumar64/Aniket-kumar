@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-export const Hero = () => {
+ const AboutHero = () => {
   const container = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
 
@@ -120,3 +120,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+export default AboutHero;
