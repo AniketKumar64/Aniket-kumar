@@ -1,26 +1,96 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brutalist Zero-Radius Design */
+  --radius-xl: 0;
+  --radius-2xl: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #e0e7eb;
+  --foreground: #030305;
+  
+  --primary: #00f2fe;
+  --primary-foreground: #030305;
+  
+  --secondary: #a8c1cf;
+  --secondary-foreground: #030305;
+  
+  --muted: #cbd5e1;
+  --muted-foreground: #475569; 
+  
+  --accent: #00f2fe;
+  --accent-foreground: #030305;
+  
+  --border: #cbd5e1;
+  --input: #cbd5e1;
+  --ring: #00f2fe;
+  --radius: 0rem; 
+}
+
+.dark {
+  --background: #030305; 
+  --foreground: #d6e4ff; 
+  --primary: #00f2fe;
+  --primary-foreground: #030305;
+  
+  --secondary: #0f172a;
+  --secondary-foreground: #d6e4ff;
+  
+  --muted: #0f172a;
+  --muted-foreground: #64748b; 
+  
+  --accent: #00f2fe;
+  --accent-foreground: #030305;
+  
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #00f2fe;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/30;
   }
-}
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-[#00f2fe] selection:text-[#030305];
+    font-feature-settings: "ss01", "ss02", "cv01";
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Custom Scrollbar for the Cold Theme */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 hover:bg-primary/50 transition-colors;
+  }
 }
