@@ -111,7 +111,7 @@ const ContactSection = () => {
               </a>
             </div>
 
-               <div className="flex items-center gap-4 pl-8 md:pl-0">
+               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pl-8 md:pl-0">
           {socials.map((link, i) => (
             <a
               key={i}
