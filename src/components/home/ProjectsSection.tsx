@@ -14,35 +14,36 @@ const Projects = () => {
 
   const projects = [
     {
-      year: "2024",
-      title: "Vortex_Engine",
-      category: "System Architecture",
-      tech: ["Rust", "Wasm", "WebGPU"],
-      id: "PRJ-001"
+      year: "2026",
+      title: "YantraAI",
+      category: "AI System",
+      tech: ["React", "PostgreSQL", "Gemini API", "Stripe"],
+      id: "PRJ-001",
+      live: "https://yantra-ai-527j.vercel.app/",
     },
     {
-      year: "2023",
-      title: "Neural_Link_UI",
-      category: "Kinetic Interface",
-      tech: ["Next.js", "GSAP", "Three.js"],
-      id: "PRJ-002"
+      year: "2026",
+      title: "FineSet",
+      category: "Full Stack E-Commerce",
+      tech: ["Next.js", "Express", "MongoDB", "JWT"],
+      id: "PRJ-002",
+      live: "https://fineset-demo.vercel.app/",
     },
     {
-      year: "2023",
-      title: "Cryo_Finance",
-      category: "Full Stack",
-      tech: ["Go", "PostgreSQL", "Redis"],
-      id: "PRJ-003"
+      year: "2026",
+      title: "Splyt",
+      category: "Modern UI Interface",
+      tech: ["React", "Tailwind", "GSAP"],
+      id: "PRJ-003",
+      live: "https://splyt-3hfu.vercel.app/",
     }
   ];
 
   useGSAP(() => {
     const rows = gsap.utils.toArray(".project-row");
-
     rows.forEach((row: any) => {
-      const title = row.querySelector("h4");
-      const meta = row.querySelectorAll(".project-meta");
       const line = row.querySelector(".row-line");
+      const elements = row.querySelectorAll(".anim-in");
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -52,31 +53,18 @@ const Projects = () => {
         },
       });
 
-      tl.from(row, {
-        opacity: 0,
-        x: -40,
-        skewX: -5,
-        duration: 1,
-        ease: "power3.out",
-      })
-      .from(line, {
+      tl.from(line, {
         scaleX: 0,
         transformOrigin: "left",
         duration: 1.5,
         ease: "expo.inOut",
-      }, "-=0.8")
-      .from(title, {
+      })
+      .from(elements, {
         opacity: 0,
-        letterSpacing: "0.8em",
-        duration: 1.2,
-        ease: "expo.out",
-      }, "-=1")
-      .from(meta, {
-        opacity: 0,
-        y: 15,
-        stagger: 0.05,
-        duration: 0.8,
-        ease: "power2.out",
+        y: 20,
+        stagger: 0.1,
+        duration: 1,
+        ease: "power3.out",
       }, "-=1");
     });
   }, { scope: container });
@@ -88,91 +76,85 @@ const Projects = () => {
     >
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Header Section */}
+        {/* Header */}
         <div className="mb-24 space-y-4">
-          <h2 className="text-[10px] uppercase tracking-[0.8em] text-[#00f2fe] font-black">
+          <h2 className="text-[10px] uppercase tracking-[0.8em] text-primary font-black">
             03 — SELECTED_WORKS
           </h2>
           <h3 className="text-4xl md:text-7xl font-light tracking-tighter uppercase">
-            Digital <span className="font-black text-[#00f2fe] italic">Artifacts</span>
+            Digital <span className="font-black text-primary italic">Artifacts</span>
           </h3>
         </div>
+        
 
         {/* Project List */}
-        <div className="project-list flex flex-col">
+        <div className="flex flex-col">
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="project-row group relative flex flex-col md:flex-row md:items-center justify-between py-12 cursor-pointer"
+              className="project-row group relative grid grid-cols-1 md:grid-cols-3 items-center py-12 md:py-16 cursor-pointer"
             >
-              {/* Bottom Line for Row */}
-              <div className="row-line absolute bottom-0 left-0 w-full h-[1px] bg-[#d6e4ff]/10 group-hover:bg-[#00f2fe]/40 transition-colors duration-500" />
+              {/* Row Line */}
+              <div className="row-line absolute bottom-0 left-0 w-full h-[1px] bg-[#d6e4ff]/10 group-hover:bg-primary/40 transition-colors duration-500" />
 
-              {/* ID & Year */}
-              <div className="project-meta flex items-center gap-8 md:w-1/4">
-                <span className="text-[10px] font-mono text-[#00f2fe] font-bold">
-                  {project.id}
-                </span>
-                <span className="text-sm font-mono opacity-20 group-hover:opacity-100 transition-opacity">
-                  [{project.year}]
-                </span>
+              {/* 1. Left Section: ID & Year */}
+              <div className="anim-in flex items-center gap-8 order-2 md:order-1 mt-6 md:mt-0">
+                <span className="text-[10px] font-mono text-primary font-bold">{project.id}</span>
+                <span className="text-sm font-mono opacity-20 group-hover:opacity-100 transition-opacity">[{project.year}]</span>
               </div>
 
-              {/* Title & Category */}
-              <div className="flex-1 mt-4 md:mt-0">
-                <h4 className="text-3xl md:text-5xl font-black tracking-tighter uppercase transition-all duration-700 group-hover:text-[#00f2fe] group-hover:translate-x-6">
+              {/* 2. Middle Section: Centered Title */}
+              <div className="anim-in flex flex-col items-center justify-center order-1 md:order-2 text-center">
+                <h4 className="text-4xl md:text-6xl font-black tracking-tighter uppercase transition-all duration-700 group-hover:text-primary group-hover:scale-110">
                   {project.title}
                 </h4>
-                <p className="project-meta text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mt-2 group-hover:opacity-100 transition-opacity">
+                <p className="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40 mt-2 group-hover:opacity-100 transition-opacity">
                   // {project.category}
                 </p>
               </div>
 
-              {/* Tech Stack Tags */}
-              <div className="project-meta flex flex-wrap gap-2 mt-6 md:mt-0 md:w-1/4 md:justify-end">
+              {/* 3. Right Section: Tech Tags */}
+              <div className="anim-in flex flex-wrap gap-2 order-3 md:justify-end mt-6 md:mt-0">
                 {project.tech.map((t) => (
-                  <span key={t} className="text-[9px] font-mono border border-[#d6e4ff]/10 px-3 py-1 rounded-full opacity-40 group-hover:border-[#00f2fe]/40 group-hover:text-[#00f2fe] transition-all">
+                  <span key={t} className="text-[9px] font-mono border border-[#d6e4ff]/10 px-3 py-1 rounded-full opacity-40 group-hover:border-primary/40 group-hover:text-primary transition-all">
                     {t}
                   </span>
                 ))}
               </div>
 
-              {/* Hover Image Preview (The "Ghost" Box) */}
-              <div className="absolute right-[15%] top-1/2 -translate-y-1/2 w-64 h-40 bg-[#00f2fe]/5 opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-700 hidden lg:block scale-90 group-hover:scale-100 translate-x-10 group-hover:translate-x-0 overflow-hidden border border-[#00f2fe]/30 backdrop-blur-md">
-                 {/* Visual Glitch Elements */}
-                 <div className="absolute inset-0 bg-gradient-to-br from-[#00f2fe]/10 to-transparent z-10" />
-                 <div className="absolute top-2 right-2 text-[8px] font-mono text-[#00f2fe] animate-pulse">LIVE_FEED ●</div>
-                 <div className="absolute bottom-3 left-3 text-[9px] font-mono text-[#00f2fe] uppercase tracking-tighter z-20">
-                    Source: {project.id}_RENDER
+              {/* Floating IFrame Preview - Centered vertically and appearing to the right of title */}
+              <div className="absolute right-[10%] top-1/2 -translate-y-1/2 w-[320px] h-[200px] bg-black opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-700 hidden xl:block scale-75 group-hover:scale-100 translate-x-20 group-hover:translate-x-0 overflow-hidden border border-primary/30 backdrop-blur-md shadow-[0_0_50px_rgba(0,242,254,0.15)] z-50">
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-20" />
+                 <div className="w-full h-full relative z-10 grayscale group-hover:grayscale-0 transition-all duration-1000">
+                    <iframe 
+                        src={project.live}
+                        className="w-[1280px] h-[800px] border-none origin-top-left scale-[0.25]"
+                        scrolling="no"
+                    />
                  </div>
-                 {/* Placeholder for noise/image */}
-                 <div className="w-full h-full bg-[#00f2fe]/5 flex items-center justify-center">
-                    <div className="w-full h-[1px] bg-[#00f2fe]/20 animate-scan" />
+                 <div className="absolute bottom-2 left-3 text-[8px] font-mono text-primary z-30 uppercase tracking-widest">
+                    Live_Stream_Active
                  </div>
+                 <div className="absolute inset-0 z-30 pointer-events-none animate-scan opacity-20 bg-gradient-to-b from-primary to-transparent h-[2px] w-full" />
               </div>
 
-              {/* Background Ghost Text */}
-              <div className="absolute left-0 bottom-4 text-[10vw] font-black opacity-0 group-hover:opacity-[0.03] pointer-events-none transition-all duration-1000 select-none uppercase -z-10 tracking-widest group-hover:translate-x-20">
+              {/* Large Background Text */}
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black opacity-0 group-hover:opacity-[0.03] pointer-events-none transition-all duration-1000 select-none uppercase -z-10 tracking-[0.2em]">
                 {project.title}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Footer Button */}
+        {/* Action Button */}
         <div className="mt-32 flex justify-center">
-          <button className="group relative px-16 py-5 border border-[#d6e4ff]/10 overflow-hidden transition-all duration-500 hover:border-[#00f2fe]/50">
-            <span className="relative z-10 text-[11px] font-mono font-bold uppercase tracking-[0.6em] group-hover:text-[#030305] transition-colors duration-500">
+          <button className="group relative px-16 py-5 border border-[#d6e4ff]/10 overflow-hidden transition-all duration-500 hover:border-primary/50">
+            <span className="relative z-10 text-[11px] font-mono font-bold uppercase tracking-[0.6em] group-hover:text-[#030305]">
               Access_All_Files
             </span>
-            <div className="absolute inset-0 bg-[#00f2fe] -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+            <div className="absolute inset-0 bg-primary -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
           </button>
         </div>
-      </div>
-
-      {/* Large Decorative Vertical Text */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[10px] font-mono uppercase tracking-[1em] opacity-20 [writing-mode:vertical-rl] pointer-events-none">
-        Archived_Protocols_2026
       </div>
     </section>
   );

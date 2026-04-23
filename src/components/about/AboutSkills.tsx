@@ -105,14 +105,14 @@ const AboutSkills = () => {
         
         badge.addEventListener("mouseenter", () => {
           gsap.to(icon, {
-            scale: 1.2,
-            rotation: 360,
+            scale: 1.3,
             duration: 0.6,
             ease: "back.out(2)",
           });
           
           gsap.to(badge, {
             y: -8,
+            sacle: 1.05,
             boxShadow: "0 10px 30px rgba(34, 211, 238, 0.3)",
             duration: 0.3,
             ease: "power2.out",

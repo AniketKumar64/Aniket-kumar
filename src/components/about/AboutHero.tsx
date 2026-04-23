@@ -51,7 +51,7 @@ import { useGSAP } from "@gsap/react";
   return (
     <section 
       ref={container} 
-      className="relative h-screen w-full bg-[#050505] text-[#e0e0e0] overflow-hidden flex flex-col md:flex-row"
+      className="relative h-screen w-full bg-background dark:bg-background text-[#e0e0e0] overflow-hidden flex flex-col md:flex-row"
     >
       {/* LEFT: Structural Info */}
       <div className="relative w-full md:w-1/3 h-full border-r border-white/10 p-8 flex flex-col justify-between z-20 bg-[#050505]">

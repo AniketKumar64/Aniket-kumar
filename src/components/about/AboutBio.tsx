@@ -79,40 +79,38 @@ const AboutBio = () => {
   }, { scope: triggerRef });
 
   return (
-    <div ref={triggerRef} className="relative w-full h-screen bg-[#e0e7eb] dark:bg-[#030305] flex items-center justify-center overflow-hidden font-mono selection:bg-[#00f2fe]">
+    <div ref={triggerRef} className="relative w-full h-screen bg-[#030305] flex items-center justify-center overflow-hidden font-mono selection:bg-primary/30">
       
-      {/* PHASE 1 BACKGROUND: This starts transparent and covers everything first.
-        It uses backdrop-blur to blend with the underlying content before overtaking.
-      */}
+
       <div className="takeover-bg absolute inset-0 bg-[#030305] opacity-0 backdrop-blur-3xl z-0 scale-105" />
 
       {/* CENTER HUD FRAME: This contains the text and appears AFTER the takeover */}
       <div className="relative z-10 w-[90%] max-w-5xl aspect-[21/9] border border-white/5 bg-white/[0.01] flex items-center justify-center p-12">
         {/* Corner Accents (reactive to HUD color) */}
-        <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-[#00f2fe]" />
-        <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-[#00f2fe]" />
-        <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-[#00f2fe]" />
-        <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-[#00f2fe]" />
+        <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-primary" />
+        <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-primary" />
+        <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-primary" />
+        <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-primary" />
 
         {/* The Animated Text Content (Centered absolute elements) */}
         <div className="relative w-full text-center">
           <div className="bio-step absolute inset-0 flex items-center justify-center opacity-0">
             <h2 className="text-xl md:text-4xl font-extralight text-slate-100 leading-tight">
-              A FOUNDATION ENGINEERED FOR <span className="text-[#00f2fe] font-medium">ENDURANCE</span>. <br/>
+              A FOUNDATION ENGINEERED FOR <span className="text-primary font-medium">ENDURANCE</span>. <br/>
               SCALABLE MERN ARCHITECTURES THAT NEVER FLINCH.
             </h2>
           </div>
 
           <div className="bio-step absolute inset-0 flex items-center justify-center opacity-0">
             <h2 className="text-xl md:text-4xl font-extralight text-slate-100 leading-tight">
-              USER EXPERIENCE IS <span className="text-[#00f2fe] font-medium">THE ARCHITECTURE</span>. <br/>
+              USER EXPERIENCE IS <span className="text-primary font-medium">THE ARCHITECTURE</span>. <br/>
               UI/UX IS THE LOGIC, NOT THE APPAREL.
             </h2>
           </div>
 
           <div className="bio-step absolute inset-0 flex items-center justify-center opacity-0">
             <h2 className="text-xl md:text-4xl font-extralight text-slate-100 leading-tight">
-              SMART INDIA HACKATHON <span className="text-[#00f2fe] font-medium">VETERAN</span>. <br/>
+              SMART INDIA HACKATHON <span className="text-primary font-medium">VETERAN</span>. <br/>
               PRECISION PROBLEM-SOLVING UNDER MAXIMUM VELOCITY.
             </h2>
           </div>
@@ -122,15 +120,15 @@ const AboutBio = () => {
       {/* RIGHT STATUS PANEL: Reactive element for context */}
       <div className="status-panel-takeover absolute right-12 top-1/2 -translate-y-1/2 space-y-8 opacity-0 hidden md:block z-20">
         <div className="text-right">
-          <p className="text-[10px] text-[#00f2fe]/60 mb-1 tracking-[0.3em]">SESSION_ID</p>
+          <p className="text-[10px] text-primary/60 mb-1 tracking-[0.3em]">SESSION_ID</p>
           <p className="text-xs text-white">AKM.DEV_SESSION_01</p>
         </div>
         <div className="text-right">
-          <p className="text-[10px] text-[#00f2fe]/60 mb-1 tracking-[0.3em]">REVEAL_STATUS</p>
+          <p className="text-[10px] text-primary/60 mb-1 tracking-[0.3em]">REVEAL_STATUS</p>
           <p className="text-xs text-white">DECRYPT_ACTIVE</p>
         </div>
         <div className="h-32 w-[1px] bg-white/10 ml-auto overflow-hidden">
-          <div className="w-full bg-[#00f2fe] h-full animate-progress-up" style={{ animationDuration: '3s' }} />
+          <div className="w-full bg-primary h-full animate-progress-up" style={{ animationDuration: '3s' }} />
         </div>
       </div>
     </div>

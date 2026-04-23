@@ -72,7 +72,6 @@ const Navbar = () => {
   };
 
   return (
-    // We use mix-blend-difference on the wrapper to ensure the whole UI inverts
     <div ref={container} className="fixed bottom-10 left-0 w-full flex justify-center z-[999] pointer-events-none px-4 mix-blend-difference">
       <nav className="nav-bar pointer-events-auto flex items-center gap-1 p-1.5 
         bg-white/10 backdrop-blur-lg 

@@ -37,15 +37,15 @@ export default function ThemeToggle() {
   if (!mounted) return null;
 
   return (
+    <div className="fixed top-8 right-8  mix-blend-difference z-[10000]">
     <button
       onClick={handleToggle}
-      // Positioned top-right by default, change to bottom-right if needed
-      className="group fixed top-8 right-8 z-[10000] flex items-center gap-3 px-5 py-2.5 
-        bg-white/10 dark:bg-black/40 backdrop-blur-2xl 
-        border border-black/10 dark:border-white/10 
+      className="group flex items-center gap-3 px-5 py-2.5 
+       bg-white/10 backdrop-blur-lg 
+        border border-white/20 
+       
         rounded-full overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl"
     >
-      {/* The Scanner Bar: Start hidden to the left */}
       <div 
         ref={scanRef}
         className="absolute top-0 -left-full w-full h-full 
@@ -53,18 +53,18 @@ export default function ThemeToggle() {
           pointer-events-none z-0"
       />
 
-      {/* Icon Wrapper */}
+  
       <div className="theme-icon relative z-10 text-lg text-[#030305] dark:text-[#00f2fe]">
         {theme === "dark" ? <HiOutlineSun /> : <HiOutlineMoon />}
       </div>
 
-      {/* Text Label */}
+    
       <span className="relative z-10 text-[10px] font-bold uppercase tracking-[0.2em] text-[#030305] dark:text-[#d6e4ff]">
         {theme === "dark" ? "Light_Mode" : "Dark_Mode"}
       </span>
 
-      {/* Bottom Glow Line: Reactive on Hover */}
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#00f2fe] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_10px_#00f2fe]" />
     </button>
+  </div>
   );
 }

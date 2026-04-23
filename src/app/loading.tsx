@@ -80,7 +80,7 @@ const Loading: React.FC<LoadingProps> = ({ onComplete }) => {
         <div className="flex justify-between items-start">
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#00f2fe] animate-pulse" />
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <span style={{ color: "#a8c1cf" }} className="text-[10px] tracking-widest uppercase">System_Active</span>
             </div>
             <span style={{ color: "#00f2fe" }} className="text-[9px]">ID: 00-AF-92-X1</span>
@@ -132,7 +132,7 @@ const Loading: React.FC<LoadingProps> = ({ onComplete }) => {
 
           <div className="flex flex-col items-center">
             <div className="w-full h-[1px] bg-[#a8c1cf]/10 relative overflow-hidden">
-               <div className="absolute inset-0 bg-[#00f2fe] origin-left animate-progress" 
+               <div className="absolute inset-0 bg-primary origin-left animate-progress" 
                     style={{ animation: 'progress 3s linear forwards' }} />
             </div>
             <span className="text-[9px] mt-2" style={{ color: "#a8c1cf" }}>CORE_STABILITY: 100%</span>

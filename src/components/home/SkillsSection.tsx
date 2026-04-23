@@ -12,26 +12,50 @@ if (typeof window !== "undefined") {
 const Skills = () => {
   const container = useRef<HTMLDivElement>(null);
 
-  const modules = [
-    {
-      code: "ENG_01",
-      category: "Architectural_Core",
-      description: "Engineering scalable foundations with type-safe environments and modular patterns.",
-      skills: ["Next.js 15", "TypeScript", "Node.js", "GraphQL", "PostgreSQL", "Redis"]
-    },
-    {
-      code: "VIS_02",
-      category: "Interactive_Systems",
-      description: "Developing high-performance motion systems and immersive 3D web experiences.",
-      skills: ["GSAP", "Three.js", "GLSL / Shaders", "Framer Motion", "WebGL", "Canvas API"]
-    },
-    {
-      code: "OPS_03",
-      category: "Cloud_Infrastructure",
-      description: "Optimizing deployment pipelines and managing distributed system systems.",
-      skills: ["AWS / GCP", "Docker & K8s", "Terraform", "CI/CD Pipelines", "Vercel Edge", "Linux Admin"]
-    }
-  ];
+const modules = [
+  {
+    code: "ENG_01",
+    category: "Full_Stack_Engineering",
+    description:
+      "Building scalable web applications using MERN stack and Next.js with focus on clean architecture, API design, and performance.",
+    skills: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "PostgreSQL"
+    ]
+  },
+  {
+    code: "VIS_02",
+    category: "Frontend_Experience",
+    description:
+      "Designing modern, responsive interfaces with smooth animations and high-quality user experience.",
+    skills: [
+      "Tailwind CSS",
+      "GSAP",
+      "Framer Motion",
+      "Responsive Design",
+      "UI/UX Design",
+      "Figma"
+    ]
+  },
+  {
+    code: "SYS_03",
+    category: "System_Design_&_APIs",
+    description:
+      "Designing backend systems with secure authentication, REST APIs, and scalable architecture patterns.",
+    skills: [
+      "REST APIs",
+      "JWT Authentication",
+      "System Design",
+      "Database Design",
+      "API Optimization",
+      "MVC Architecture"
+    ]
+  }
+];
 
   useGSAP(() => {
     // 1. Create a "Pinned" effect for the left panel on Desktop
@@ -118,18 +142,18 @@ const Skills = () => {
   return (
     <section 
       ref={container} 
-      className="relative w-full bg-[#e0e7eb] dark:bg-[#030305] text-[#030305] dark:text-[#d6e4ff] py-24 md:py-48 px-8 md:px-20 transition-colors duration-1000 overflow-visible"
+      className="relative w-full bg-background dark:bg-background text-[#030305] dark:text-[#d6e4ff] py-24 md:py-48 px-8 md:px-20 transition-colors duration-1000 overflow-visible"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24">
         
         {/* LEFT: FIXED NAVIGATION (Sticky on scroll) */}
         <div className="left-panel lg:w-1/3 h-fit space-y-12 z-20">
           <div className="space-y-4">
-            <h2 className="text-[10px] uppercase tracking-[0.8em] text-[#00c3fe] dark:text-[#00f2fe] font-black">
+            <h2 className="text-[10px] uppercase tracking-[0.8em] text-primary dark:text-primary font-black">
               02 — STACK_SYNC
             </h2>
             <h3 className="text-5xl font-black tracking-tighter uppercase leading-none">
-              The <br /> <span className="text-[#00c3fe] dark:text-[#00f2fe]">Arsenal</span>
+              The <br /> <span className="text-primary dark:text-primary">Arsenal</span>
             </h3>
           </div>
 
@@ -139,7 +163,7 @@ const Skills = () => {
                 key={m.code}
                 className={`nav-item-${i} relative py-6 pl-8 opacity-30 transition-all duration-500`}
               >
-                <div className={`nav-line-${i} absolute left-0 top-0 h-full w-[3px] bg-[#00c3fe] dark:bg-[#00f2fe] scale-y-0 origin-top`} />
+                <div className={`nav-line-${i} absolute left-0 top-0 h-full w-[3px] bg-primary dark:bg-primary scale-y-0 origin-top`} />
                 <span className="block text-[10px] font-mono mb-1">[{m.code}]</span>
                 <span className="text-xl font-bold uppercase tracking-tight">{m.category}</span>
               </div>
@@ -151,8 +175,8 @@ const Skills = () => {
         <div className="skill-feed lg:w-2/3 space-y-32 md:space-y-64">
           {modules.map((module, i) => (
             <div key={module.code} className="skill-block space-y-12">
-              <div className="p-8 bg-[#030305]/5 dark:bg-[#d6e4ff]/5 border-l-4 border-[#00c3fe] dark:border-[#00f2fe]">
-                <span className="lg:hidden text-[10px] font-mono text-[#00c3fe] dark:text-[#00f2fe] mb-2 block">[{module.code}]</span>
+              <div className="p-8 bg-[#030305]/5 dark:bg-[#d6e4ff]/5 border-l-4 border-primary dark:border-primary">
+                <span className="lg:hidden text-[10px] font-mono text-primary dark:text-primary mb-2 block">[{module.code}]</span>
                 <h4 className="text-2xl font-bold uppercase mb-4 lg:hidden">{module.category}</h4>
                 <p className="text-lg md:text-2xl font-light leading-relaxed italic opacity-80 tracking-tight">
                   "{module.description}"
@@ -163,10 +187,10 @@ const Skills = () => {
                 {module.skills.map((skill) => (
                   <div 
                     key={skill} 
-                    className="skill-pill group flex items-center justify-between p-6 border border-[#030305]/10 dark:border-[#d6e4ff]/10 hover:border-[#00c3fe] dark:hover:border-[#00f2fe] bg-transparent hover:bg-[#00c3fe]/5 transition-all duration-300"
+                    className="skill-pill group flex items-center justify-between p-6 border border-[#030305]/10 dark:border-[#d6e4ff]/10 hover:border-primary dark:hover:border-primary bg-transparent hover:bg-primary/5 transition-all duration-300"
                   >
                     <span className="text-sm font-bold tracking-widest uppercase">{skill}</span>
-                    <div className="w-1.5 h-1.5 rotate-45 border border-[#00c3fe] dark:border-[#00f2fe] group-hover:bg-[#00c3fe] dark:group-hover:bg-[#00f2fe] transition-all" />
+                    <div className="w-1.5 h-1.5 rotate-45 border border-primary dark:border-primary group-hover:bg-primary dark:group-hover:bg-primary transition-all" />
                   </div>
                 ))}
               </div>

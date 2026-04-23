@@ -83,14 +83,14 @@ export const Hero = () => {
   return (
     <section 
       ref={container} 
-      className="relative h-[180vh] md:h-[200vh] w-full bg-[#e0e7eb] dark:bg-[#030305] text-black dark:text-[#d6e4ff] overflow-visible transition-colors duration-1000"
+      className="relative h-[180vh] md:h-[200vh] w-full bg-background dark:bg-background text-black dark:text-[#d6e4ff] overflow-visible transition-colors duration-1000"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col">
         
         {/* GHOST LAYER: Centered */}
         <div className="ghost-text absolute inset-0 flex items-center justify-center pointer-events-none z-0 select-none">
           <h2 className="text-[50vw] md:text-[35vw] font-black opacity-[0.03] dark:opacity-[0.05] whitespace-nowrap">
-            KING...
+            KING
           </h2>
         </div>
 
@@ -106,15 +106,22 @@ export const Hero = () => {
           
           {/* MOBILE: Centered Stack | DESKTOP: Top-Left Alignment */}
           <div className="parallax-item flex-1 flex flex-col items-center justify-center md:items-start md:justify-start text-center md:text-left">
-            <h1 className="reveal-item text-[14vw] md:text-[10vw] font-black leading-none uppercase tracking-tighter">
+              <div className="reveal-item flex items-center gap-4 mt-6 md:mt-4 justify-center md:justify-start">
+              <span className="w-10 md:w-12 h-[1px] bg-primary" />
+              <span className="text-[9px] md:text-[10px] font-mono tracking-[0.3em] uppercase opacity-60">
+                full stack developer
+              </span>
+              <span className="hidden md:block w-10 md:w-12 h-[1px] bg-primary" />
+            </div>
+            <h1 className="reveal-item text-[16vw] md:text-[10vw] font-black leading-none uppercase tracking-tighter">
               Aniket <br className="md:hidden" /> Kumar
             </h1>
             <div className="reveal-item flex items-center gap-4 mt-6 md:mt-4 justify-center md:justify-start">
-              <span className="w-10 md:w-12 h-[1px] bg-[#00f2fe]" />
+              <span className="w-10 md:w-12 h-[1px] bg-primary" />
               <span className="text-[9px] md:text-[10px] font-mono tracking-[0.3em] uppercase opacity-60">
                 Creative Technologist
               </span>
-              <span className="hidden md:block w-10 md:w-12 h-[1px] bg-[#00f2fe]" />
+              <span className="hidden md:block w-10 md:w-12 h-[1px] bg-primary" />
             </div>
           </div>
 
@@ -123,10 +130,10 @@ export const Hero = () => {
             <div className="reveal-item max-w-[280px] md:max-w-sm mb-6 md:mb-8 order-2 md:order-1">
               <p className="text-[10px] font-bold uppercase tracking-widest leading-relaxed opacity-60">
                 Merging technical architecture with <br className="hidden md:block" /> 
-                <span className="text-[#00f2fe]">high-performance motion</span>.
+                <span className="text-primary">high-performance motion</span>.
               </p>
             </div>
-            <h1 className="reveal-item text-[22vw] md:text-[18vw] font-black leading-none uppercase tracking-tighter order-1 md:order-2 mb-4 md:mb-0">
+            <h1 className="reveal-item text-[18vw] md:text-[18vw] font-black leading-none uppercase tracking-tighter order-1 md:order-2 mb-4 md:mb-0">
               Mourya
             </h1>
           </div>
@@ -138,16 +145,16 @@ export const Hero = () => {
           className="scanner absolute 
                      bottom-0 right-0 h-[8vh] w-full              /* Mobile */
                      md:top-0 md:right-[12%] md:w-[10vw] md:h-full /* Desktop */
-                     z-30 backdrop-blur-xl bg-[#00f2fe]/10 
-                     border-t md:border-t-0 md:border-x border-[#00f2fe]/30
+                     z-30 backdrop-blur-xl bg-primary/10 
+                     border-t md:border-t-0 md:border-x border-primary/30
                      flex items-center justify-center overflow-hidden"
         >
           <div className="flex md:rotate-90 items-center gap-6 whitespace-nowrap">
-            <span className="text-[#00f2fe] text-[8px] md:text-[9px] font-mono tracking-[1em] font-black uppercase">
+            <span className="text-primary text-[8px] md:text-[9px] font-mono tracking-[1em] font-black uppercase">
               System_Active
             </span>
-            <div className="w-1 h-1 bg-[#00f2fe] rounded-full animate-ping" />
-            <span className="text-[#00f2fe]/30 text-[8px] md:text-[9px] font-mono tracking-[0.5em] uppercase">
+            <div className="w-1 h-1 bg-primary rounded-full animate-ping" />
+            <span className="text-primary/30 text-[8px] md:text-[9px] font-mono tracking-[0.5em] uppercase">
               v2.0.26
             </span>
           </div>
@@ -167,15 +174,15 @@ export const Hero = () => {
             className="group flex items-center gap-3"
           >
             {/* Icon */}
-            <Icon className="text-lg text-white transition-all duration-300 group-hover:text-[#00f2fe] group-hover:scale-110" />
+            <Icon className="text-lg text-white transition-all duration-300 group-hover:text-primary group-hover:scale-110" />
 
             {/* Text */}
-            <span className="text-[10px] font-black tracking-widest text-white transition-colors duration-300 group-hover:text-[#00f2fe]">
+            <span className="text-[10px] font-black tracking-widest text-white transition-colors duration-300 group-hover:text-primary">
               {social.name}
             </span>
 
             {/* underline animation */}
-            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#00f2fe] transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
         );
       })}
@@ -184,7 +191,7 @@ export const Hero = () => {
       </div>
 
       {/* POST-PROCESSING */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-[100]" />
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/noise.png')] z-[1000]" />
     </section>
   );
 };

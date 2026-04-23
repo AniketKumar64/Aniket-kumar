@@ -78,7 +78,7 @@
     @apply border-border outline-ring/30;
   }
   body {
-    @apply bg-background text-foreground antialiased selection:bg-[#00f2fe] selection:text-[#030305];
+    @apply bg-background text-foreground antialiased selection:bg-primary selection:text-background;
     font-feature-settings: "ss01", "ss02", "cv01";
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   }

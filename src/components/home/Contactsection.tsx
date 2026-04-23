@@ -78,20 +78,20 @@ const ContactSection = () => {
           {/* LEFT: STATUS & METADATA */}
           <div className="lg:w-1/3 space-y-12">
             <div className="space-y-4">
-              <h2 className="contact-reveal text-[10px] uppercase tracking-[0.8em] text-[#00c3fe] dark:text-[#00f2fe] font-black">
+              <h2 className="contact-reveal text-[10px] uppercase tracking-[0.8em] text-primary dark:text-primary font-black">
                 04 — TRANSMISSION
               </h2>
               <h3 className="contact-reveal text-5xl font-black tracking-tighter uppercase leading-none">
-                Start the <br /> <span className="text-[#00c3fe] dark:text-[#00f2fe]">Dialogue</span>
+                Start the <br /> <span className="text-primary dark:text-primary">Dialogue</span>
               </h3>
             </div>
 
             <div className="contact-reveal space-y-8 pt-8">
               <div className="flex items-center gap-4">
-                 <div className="w-2 h-2 bg-[#00c3fe] dark:bg-[#00f2fe] animate-pulse" />
+                 <div className="w-2 h-2 bg-primary dark:bg-primary animate-pulse" />
                  <span className="text-[10px] font-mono tracking-widest uppercase opacity-60">Status: Accepting Proposals</span>
               </div>
-              <p className="text-sm md:text-base font-light opacity-60 leading-relaxed border-l border-[#00c3fe]/30 pl-6">
+              <p className="text-sm md:text-base font-light opacity-60 leading-relaxed border-l border-primary/30 pl-6">
                 Currently open for architectural consulting, high-performance UI/UX development, and strategic digital partnerships worldwide.
               </p>
             </div>
@@ -105,9 +105,9 @@ const ContactSection = () => {
               <span className="absolute -top-8 left-0 text-[10px] font-mono opacity-30 uppercase tracking-[0.4em]">Direct_Path //</span>
               <a 
                 href="mailto:kumaraniket20805@aniket.com" 
-                className="block text-[2vw] md:text-[2vw] font-black tracking-tighter uppercase leading-none transition-all duration-500 hover:text-[#00c3fe] dark:hover:text-[#00f2fe] hover:translate-x-4"
+                className="block text-[2vw] md:text-[2vw] font-black tracking-tighter uppercase leading-none transition-all duration-500 hover:text-primary dark:hover:text-primary hover:translate-x-4"
               >
-                kumaraniket20805@<span className="text-[#00c3fe] dark:text-[#00f2fe]">gmail.com</span>
+                kumaraniket20805@<span className="text-primary dark:text-primary">gmail.com</span>
               </a>
             </div>
 
@@ -118,17 +118,17 @@ const ContactSection = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="social-icon group relative p-3 border border-[#d6e4ff]/10 bg-white/[0.02] hover:border-[#00f2fe]/50 transition-all duration-500"
+              className="social-icon group relative p-3 border border-black dark:border-[#d6e4ff]/10 bg-white/[0.02] hover:border-primary/50 transition-all duration-500"
             >
-              <div className="relative z-10 flex items-center justify-center gap-4 text-white/40 group-hover:text-[#00f2fe] transition-colors duration-300">
+              <div className="relative z-10 flex items-center justify-center gap-4 text-black dark:text-white/40 group-hover:text-primary transition-colors duration-300">
                 {link.icon} {link.label}
               </div>
               
               {/* Background Glow on Hover */}
-              <div className="absolute inset-0 bg-[#00f2fe]/5 opacity-0 group-hover:opacity-100 blur-sm transition-opacity" />
+              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 blur-sm transition-opacity" />
               
               {/* Tiny Label appearing on top */}
-              <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[7px] font-mono text-[#00f2fe] opacity-0 group-hover:opacity-100 transition-all duration-300 tracking-widest">
+              <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[7px] font-mono text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 tracking-widest">
                 {link.label}
               </span>
             </a>
@@ -137,7 +137,7 @@ const ContactSection = () => {
 
               {/* GEOGRAPHIC DATA */}
               <div className="space-y-2">
-                <h4 className="text-[10px] uppercase tracking-widest text-[#00c3fe] dark:text-[#00f2fe] font-bold">Base_Loc</h4>
+                <h4 className="text-[10px] uppercase tracking-widest text-primary dark:text-primary font-bold">Base_Loc</h4>
                 <p className="text-[11px] font-mono uppercase tracking-widest opacity-60">
                   Noida, IND // 28.5355° N, 77.3910° E <br />
                   Global Ops: GMT +5:30
@@ -155,16 +155,16 @@ const ContactSection = () => {
           </div>
 
           <div className="magnetic-area flex items-center justify-center w-48 h-48">
-            <button className="magnetic-btn group relative flex items-center justify-center w-32 h-32 rounded-full border border-[#00c3fe] dark:border-[#00f2fe] overflow-hidden transition-colors duration-500 hover:bg-[#00c3fe] dark:hover:bg-[#00f2fe]">
+            <button className="magnetic-btn group relative flex items-center justify-center w-32 h-32 rounded-full border border-primary dark:border-primary overflow-hidden transition-colors duration-500 hover:bg-primary dark:hover:bg-primary">
               <a href="mailto:kumaraniket20805@aniket.com" className="relative z-10 text-[10px] font-black uppercase tracking-widest group-hover:text-[#030305] transition-colors">Initiate</a>
-              <div className="absolute inset-0 bg-[#00c3fe] dark:bg-[#00f2fe] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
+              <div className="absolute inset-0 bg-primary dark:bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-expo" />
             </button>
           </div>
         </div>
      
 
       {/* BACKGROUND WATERMARK */}
-      <div className="absolute -right-10 -bottom-20 text-[25vw] font-black opacity-[0.02] pointer-events-none select-none text-[#00c3fe] dark:text-[#00f2fe] tracking-tighter">
+      <div className="absolute -right-10 -bottom-20 text-[25vw] font-black opacity-[0.02] pointer-events-none select-none text-primary dark:text-primary tracking-tighter">
         CONNECT
       </div>
     </section>
