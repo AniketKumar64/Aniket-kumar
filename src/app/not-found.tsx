@@ -9,7 +9,6 @@ const Error404 = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Create a "pulse" error effect
       gsap.to(".error-core", {
         opacity: 0.3,
         duration: 0.2,
@@ -18,7 +17,6 @@ const Error404 = () => {
         repeatDelay: 2,
       });
 
-      // Float the broken pieces
       gsap.to(".float-path", {
         y: -5,
         x: 2,
@@ -49,15 +47,14 @@ const Error404 = () => {
       
       className="min-h-screen w-full flex flex-col items-center justify-center font-mono p-10 overflow-hidden  text-black dark:text-[#a8c1cf]  "
     >
-      {/* BACKGROUND DECORATION */}
+     
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center text-[20vw] font-bold select-none">
         VOID
       </div>
 
-      {/* CENTRAL BROKEN CORE */}
+
       <div className="relative mb-8">
         <svg viewBox="0 0 100 100" className="w-40 h-40 md:w-56 md:h-56">
-          {/* Fragmented Outer Hex */}
           <path
             className="float-path"
             d="M50 5 L89 27.5 L89 45 M89 60 L89 72.5 L50 95 L11 72.5 L11 27.5 Z"
@@ -66,7 +63,6 @@ const Error404 = () => {
             strokeWidth="0.5"
             opacity="0.3"
           />
-          {/* Fragmented Middle Hex (The Error Color) */}
           <path
             className="error-core float-path"
             d="M50 20 L76 35 L76 50 M76 60 L76 65 L50 80 L24 65 L24 35 Z"
@@ -74,7 +70,6 @@ const Error404 = () => {
             stroke="#00f2fe"
             strokeWidth="1"
           />
-          {/* Inner Core "Disconnected" */}
           <circle cx="50" cy="55" r="2" fill="#00f2fe" className="float-path" />
         </svg>
       </div>

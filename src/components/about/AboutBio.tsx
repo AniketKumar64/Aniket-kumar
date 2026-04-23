@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -51,8 +51,8 @@ const AboutBio = () => {
       mainTl.fromTo(p, 
         { 
           opacity: 0, 
-          y: 40,               // Slightly larger movement for more impact
-          filter: "blur(15px)", // Strong blur to make it "decrypt"
+          y: 40,               
+          filter: "blur(15px)", 
           scale: 0.85 
         },
         { 
@@ -61,10 +61,9 @@ const AboutBio = () => {
           filter: "blur(0px)",
           scale: 1, 
           duration: 2, 
-          ease: "back.out(1.2)" // Slight "overshoot" for mechanical feel
+          ease: "back.out(1.2)" 
         }
       )
-      // Only fade out if it's NOT the last paragraph (the conclusion stays visible)
       if (i < paragraphs.length - 1) {
         mainTl.to(p, { 
           opacity: 0, 
@@ -84,15 +83,12 @@ const AboutBio = () => {
 
       <div className="takeover-bg absolute inset-0 bg-[#030305] opacity-0 backdrop-blur-3xl z-0 scale-105" />
 
-      {/* CENTER HUD FRAME: This contains the text and appears AFTER the takeover */}
       <div className="relative z-10 w-[90%] max-w-5xl aspect-[21/9] border border-white/5 bg-white/[0.01] flex items-center justify-center p-12">
-        {/* Corner Accents (reactive to HUD color) */}
         <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-primary" />
         <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-primary" />
         <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-primary" />
         <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-primary" />
 
-        {/* The Animated Text Content (Centered absolute elements) */}
         <div className="relative w-full text-center">
           <div className="bio-step absolute inset-0 flex items-center justify-center opacity-0">
             <h2 className="text-xl md:text-4xl font-extralight text-slate-100 leading-tight">

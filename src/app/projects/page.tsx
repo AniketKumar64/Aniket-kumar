@@ -1,7 +1,6 @@
 "use client";
 
 import AboutContact from "@/components/about/ContactSection";
-import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 
@@ -142,6 +141,18 @@ export default function ProjectPage() {
   <div className="absolute bottom-10 right-10 hidden md:block font-mono text-[10px] opacity-30 text-right">
     BUILD_LOG_094<br />
     STATUS: STABLE
+  </div>
+  <div className="max-w-md mx-auto pt-8">
+      <p className="text-xs md:text-sm font-light text-white/40 tracking-[0.2em] leading-relaxed uppercase">
+        Curating high-performance <span className="text-white/80">architectural deployments</span> and visual experiences.
+      </p>
+    </div>
+
+
+  {/* 4. Bottom Navigation Hint */}
+  <div className="absolute bottom-12 flex flex-col items-center gap-4 opacity-30 hover:opacity-100 transition-opacity duration-500">
+    <div className="w-[1px] h-20 bg-gradient-to-b from-primary to-transparent" />
+    <span className="text-[9px] font-mono tracking-[0.4em] rotate-90 translate-y-8">SCROLL</span>
   </div>
 </header>
 
