@@ -13,6 +13,7 @@ const projects = [
     image: "/projects/yantraai.jpg",
     github: "https://github.com/AniketKumar64/yantra-ai",
     live: "https://yantra-ai-527j.vercel.app/",
+    iFrames: "https://yantra-ai-527j.vercel.app/",
     description:
       "AI-powered website builder that generates full-stack applications from prompts with live code editing and a credit-based system.",
   },
@@ -24,6 +25,7 @@ const projects = [
     image: "/projects/fineset.jpg",
     github: "https://github.com/AniketKumar64/FineSet",
     live: "https://fineset-demo.vercel.app/",
+    iFrames: "https://fineset-demo.vercel.app/",
     description:
       "Full-stack e-commerce platform with secure authentication, refresh token rotation, and 15+ REST APIs.",
   },
@@ -35,6 +37,7 @@ const projects = [
     image: "/projects/snappin.jpg",
     github: "https://github.com/AniketKumar64", // fallback (no repo yet)
     live: "https://snappin-random-video-chat-0-1.vercel.app/",
+    iFrames: "https://snappin-random-video-chat-0-1.vercel.app/",
     description:
       "Random video chat UI with real-time interaction design and smooth responsive experience.",
   },
@@ -46,6 +49,7 @@ const projects = [
     image: "/projects/splyt.jpg",
     github: "https://github.com/AniketKumar64",
     live: "https://splyt-3hfu.vercel.app/",
+    iFrames: "https://splyt-3hfu.vercel.app/",
     description:
       "Modern web interface focused on layout precision, animations, and clean UI architecture.",
   },
@@ -57,6 +61,7 @@ const projects = [
     image: "/projects/pixelpulse.jpg",
     github: "https://github.com/AniketKumar64",
     live: "https://pixel-pulse-two.vercel.app/",
+    iFrames: "https://pixel-pulse-two.vercel.app/",
     description:
       "Dynamic web experience showcasing advanced animations and interactive UI patterns.",
   
@@ -70,6 +75,7 @@ const projects = [
     image: "/projects/goldenhour.jpg",
     github: "https://github.com/AniketKumar64",
     live: "https://golden-hour-pi.vercel.app/",
+    iFrames:"https://golden-hour-pi.vercel.app/",
     description:
       "Visually rich aesthetic web app focused on smooth transitions and immersive UI.",
   },
@@ -78,14 +84,17 @@ const projects = [
   title: "JOB PREP",
     tag: "DASHBOARD_UI",
     tech: "React • Tailwind • Charts",
-    image: "/projects/jobprep.jpg",
+    image: "/jopPrep.png",
     github: "https://github.com/AniketKumar64",
     live: "https://job-prep-demo.vercel.app/",
+    iFrames:"",
     description:
       "Interactive dashboard UI for interview preparation with analytics-focused design.",},
 ];
 
 export default function ProjectPage() {
+
+
 
   return (
     <div
@@ -164,6 +173,7 @@ export default function ProjectPage() {
             className={`group flex flex-col md:flex-row items-center min-h-screen justify-between gap-12 md:gap-20 ${
               i % 2 !== 0 ? "md:flex-row-reverse" : ""
             }`}
+              onClick={() => window.open(p.live, "_blank")}
           >
             {/* CONTENT COLUMN */}
             <div className="w-full md:w-1/2 transition-all duration-700 transform group-hover:-translate-y-2">
@@ -212,31 +222,31 @@ export default function ProjectPage() {
               {/* Frame Border */}
               <div className="absolute inset-0 border border-current opacity-10 transition-opacity group-hover/visual:opacity-30" />
               
-              <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                {p.image ? (
-                  <iframe
-                    src={p.live}
-                    title={p.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover/visual:scale-105"
-                  />
-                 
-                ) : (
-                  <div className="relative">
-                    <svg viewBox="0 0 100 100" className="w-48 h-48 transition-transform duration-700 group-hover/visual:rotate-90">
-                      <path
-                        d="M50 5 L90 27.5 L90 72.5 L50 95 L10 72.5 L10 27.5 Z"
-                        fill="none"
-                        stroke={"#00f2fe"}
-                        strokeWidth="0.5"
-                        className="opacity-40"
-                      />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                       <div className="w-1 h-1 bg-primary animate-pulse shadow-[0_0_8px_#00f2fe]" />
-                    </div>
-                  </div>
-                )}
-              </div>
+            <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
+  {p.iFrames ? (
+    <iframe
+      src={p.iFrames}
+      title={p.title}
+      className="w-full h-full object-cover transition-transform duration-700 group-hover/visual:scale-105"
+      loading="lazy"
+    />
+  ) : p.image ? (
+    <div className="relative w-full h-full">
+      <img
+        src={p.image}
+        alt={p.title}
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-1 h-1 bg-primary animate-pulse shadow-[0_0_8px_#00f2fe]" />
+      </div>
+    </div>
+  ) : (
+    <div className="flex items-center justify-center w-full h-full text-gray-400">
+      No Preview Available
+    </div>
+  )}
+</div>
 
               {/* HUD Overlay Tags */}
               <div className={`absolute bottom-6 p-2 backdrop-blur-sm bg-black/20 text-[9px] ${i % 2 !== 0 ? "left-6" : "right-6 text-right"}`}>

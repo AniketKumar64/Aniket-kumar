@@ -71,7 +71,7 @@ const Skills = () => {
           trigger: ".skill-feed",
           toggleActions: "play none none reverse",
         },
-        opacity: 0,
+        opacity: 1,
         y: 20,
         stagger: 0.05,
         duration: 0.6,

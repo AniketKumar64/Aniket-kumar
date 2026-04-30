@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -91,6 +92,7 @@ const Projects = () => {
         <div className="flex flex-col">
           {projects.map((project, index) => (
             <div 
+            onClick={() => window.open(project.live, "_blank")}
               key={index} 
               className="project-row group relative grid grid-cols-1 md:grid-cols-3 items-center py-12 md:py-16 cursor-pointer"
             >
@@ -149,9 +151,9 @@ const Projects = () => {
         {/* Action Button */}
         <div className="mt-32 flex justify-center">
           <button className="group relative px-16 py-5 border border-[#d6e4ff]/10 overflow-hidden transition-all duration-500 hover:border-primary/50">
-            <span className="relative z-10 text-[11px] font-mono font-bold uppercase tracking-[0.6em] group-hover:text-[#030305]">
+            <Link href="/projects" className="relative z-10 text-[11px] font-mono font-bold uppercase tracking-[0.6em] group-hover:text-[#030305]">
               Access_All_Files
-            </span>
+            </Link>
             <div className="absolute inset-0 bg-primary -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
           </button>
         </div>

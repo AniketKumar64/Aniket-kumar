@@ -17,7 +17,7 @@ const AboutContact = () => {
       id: "02", 
       title: "LINKEDIN", 
       value: "in/aniketkumarmourya", 
-      url: "https://linkedin.com/in/AniketKumarMourya", 
+      url: "https://linkedin.com/in/AniketKumar64", 
       icon: <FiLinkedin />,
       tag: "NET_PROTOCOL"
     },

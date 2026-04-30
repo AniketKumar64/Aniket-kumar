@@ -122,7 +122,7 @@ export const About = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent -translate-y-full group-hover:translate-y-full transition-transform duration-[2000ms] ease-in-out" />
               
               <div className="w-full h-full flex items-center justify-center">
-                 <span className="text-[4vw] font-black opacity-1 tracking-tighter text-primary">Aniket kumar</span>
+                 <img src="/Aniket.png" alt="Aniket Kumar Mourya" className="w-full h-full object-cover brightness-85" />
               </div>
               
               {/* Corner Accents */}
