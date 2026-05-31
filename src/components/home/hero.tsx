@@ -24,11 +24,11 @@ export const Hero = () => {
     url: "https://github.com/AniketKumar64",
     icon: FaGithub,
   },
-  {
-    name: "LEETCODE",
-    url: "https://leetcode.com/AniketKumar64",
-    icon: FaCode, // closest generic icon
-  },
+  // {
+  //   name: "LEETCODE",
+  //   url: "https://leetcode.com/AniketKumar64",
+  //   icon: FaCode, // closest generic icon
+  // },
 ];
 
   useGSAP(() => {

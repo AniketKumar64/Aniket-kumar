@@ -16,7 +16,7 @@ const Navbar = () => {
     { name: "Projects", icon: <HiOutlineCode />, href: "/projects" },
     { name: "LinkedIn", icon: <SlSocialLinkedin />, href: "https://linkedin.com/in/AniketKumarMourya", external: true },
     { name: "GitHub", icon: <SiGithub />, href: "https://github.com/Aniketkumar64", external: true },
-    { name: "LeetCode", icon: <SiLeetcode />, href: "https://leetcode.com/Aniketkumar64", external: true },
+    // { name: "LeetCode", icon: <SiLeetcode />, href: "https://leetcode.com/Aniketkumar64", external: true },
   ];
 
   useGSAP(() => {

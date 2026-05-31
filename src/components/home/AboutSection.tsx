@@ -17,7 +17,7 @@ export const About = () => {
   const socials = [
     { icon: <SlSocialLinkedin />, href: "https://linkedin.com/in/AniketKumarMourya", label: "LINKEDIN" },
     { icon: <SiGithub />, href: "https://github.com/AniketKumar64", label: "GITHUB" },
-    { icon: <SiLeetcode />, href: "https://leetcode.com/AniketKumar64", label: "LEETCODE" },
+    // { icon: <SiLeetcode />, href: "https://leetcode.com/AniketKumar64", label: "LEETCODE" },
   ];
 
   useGSAP(() => {
