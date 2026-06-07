@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,27 +9,35 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+interface ModuleItem {
+  code: string;
+  category: string;
+  description: string;
+  skills: string[];
+}
+
 const Skills = () => {
   const container = useRef<HTMLDivElement>(null);
+  const [activeTab, setActiveTab] = useState<number>(0);
 
-  const modules = [
+  const modules: ModuleItem[] = [
     {
       code: "ENG_01",
-      category: "Full_Stack_Engineering",
+      category: "Full Stack Engineering",
       description:
         "Building scalable web applications using MERN stack and Next.js with focus on clean architecture, API design, and performance.",
       skills: ["React", "Next.js", "Node.js", "Express.js", "MongoDB", "PostgreSQL"],
     },
     {
       code: "VIS_02",
-      category: "Frontend_Experience",
+      category: "Frontend Experience",
       description:
         "Designing modern, responsive interfaces with smooth animations and high-quality user experience.",
       skills: ["Tailwind", "GSAP", "Framer", "Responsive", "UI/UX", "Figma"],
     },
     {
       code: "SYS_03",
-      category: "System_Design",
+      category: "System Design",
       description:
         "Designing backend systems with secure authentication, REST APIs, and scalable architecture patterns.",
       skills: ["REST APIs", "JWT", "Systems", "Database", "Optimization", "MVC"],
@@ -38,44 +46,54 @@ const Skills = () => {
 
   useGSAP(
     () => {
-      ScrollTrigger.create({
-        trigger: ".left-panel",
-        start: "top 20%",
-        endTrigger: container.current,
-        end: "bottom 80%",
-        pin: true,
-        pinSpacing: false,
-      });
-
       const items = gsap.utils.toArray(".skill-block");
       items.forEach((item: any, i: number) => {
         ScrollTrigger.create({
           trigger: item,
-          start: "top 40%",
-          end: "bottom 40%",
+          start: "top 35%",
+          end: "bottom 35%",
           onToggle: (self) => {
             if (self.isActive) {
-              gsap.to(`.nav-item-${i}`, { opacity: 1, x: 10, duration: 0.4 });
-              gsap.to(`.nav-line-${i}`, { scaleY: 1, duration: 0.4 });
-            } else {
-              gsap.to(`.nav-item-${i}`, { opacity: 0.3, x: 0, duration: 0.4 });
-              gsap.to(`.nav-line-${i}`, { scaleY: 0, duration: 0.4 });
+              setActiveTab(i);
             }
           },
         });
-      });
 
-      const pills = gsap.utils.toArray(".skill-pill");
-      gsap.from(pills, {
-        scrollTrigger: {
-          trigger: ".skill-feed",
-          toggleActions: "play none none reverse",
-        },
-        opacity: 1,
-        y: 20,
-        stagger: 0.05,
-        duration: 0.6,
-        ease: "power4.out",
+        const headerElements = item.querySelectorAll(".module-header, .module-desc");
+        gsap.fromTo(
+          headerElements,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        const cards = item.querySelectorAll(".skill-pill");
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 20, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            stagger: 0.05,
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 75%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
       });
     },
     { scope: container }
@@ -84,105 +102,115 @@ const Skills = () => {
   return (
     <section
       ref={container}
-      className="relative w-full bg-background dark:bg-background text-[#030305] dark:text-[#d6e4ff] py-16 md:py-48 px-6 md:px-20 overflow-hidden"
+      className="relative w-full bg-[#fcfcfd] text-[#09090b] py-24 md:py-44 px-6 md:px-16 overflow-hidden antialiased selection:bg-primary/20 selection:text-[#09090b]"
     >
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24">
+
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32 relative z-10">
         
-        <div className="left-panel md:block hidden lg:w-1/3 h-fit z-20">
-  <div className="space-y-4 text-center lg:text-left">
-    {/* 1. Mobile Status Badge */}
-    <div className="inline-flex lg:hidden items-center gap-3 px-3 py-1 border border-primary/20 bg-primary/5 rounded-full mb-2">
-      <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
-      <h2 className="text-[8px] uppercase tracking-[0.4em] text-primary font-bold">
-        02 — STACK_SYNC
-      </h2>
-    </div>
+        <div className="left-panel w-full lg:w-1/4 h-fit lg:sticky lg:top-24">
+          <div className="space-y-6 text-left">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 text-[10px] uppercase tracking-[0.3em] text-primary bg-primary/5 border border-primary/20 rounded-sm font-mono font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              SYS.INDEX // 02
+            </div>
 
-    {/* 2. Desktop-only Header (Hidden on Mobile) */}
-    <h2 className="hidden lg:block text-[10px] uppercase tracking-[0.8em] text-primary font-black">
-      02 — STACK_SYNC
-    </h2>
+            <h3 className="text-4xl md:text-5xl font-black tracking-tight uppercase leading-none text-[#09090b]">
+              THE <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-400">
+                CORE_INDEX
+              </span>
+            </h3>
 
-    {/* 3. Main Title - Adjusted for Mobile Scale */}
-    <h3 className="text-5xl md:text-5xl font-black tracking-tighter uppercase leading-[0.85] lg:leading-[0.9]">
-      The <br /> 
-      <span className="text-primary drop-shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)]">
-        CORE_INDEX
-      </span>
-    </h3>
+            <p className="text-xs font-mono text-neutral-400 tracking-wider hidden lg:block">
+              [SYSTEM SPECIFICATION LAYER v2.0.4]
+            </p>
+          </div>
 
-    {/* 4. Mobile-only Progress Indicator (Subtle UI touch) */}
-    <div className="flex lg:hidden items-center justify-center gap-1 opacity-30 pt-2">
-      <div className="h-[1px] w-8 bg-primary" />
-      <div className="text-[8px] font-mono tracking-widest">V.2.0.4</div>
-      <div className="h-[1px] w-8 bg-primary" />
-    </div>
-  </div>
+          <nav className="hidden lg:flex flex-col mt-16 space-y-1 relative">
+            <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-neutral-200" />
+            {modules.map((m, i) => {
+              const isActive = activeTab === i;
+              return (
+                <div
+                  key={m.code}
+                  className="relative py-4 pl-6 cursor-default transition-all duration-300 group"
+                  style={{ opacity: isActive ? 1 : 0.25 }}
+                >
+                  <div 
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 h-6 w-[2px] bg-primary transition-transform duration-300 ease-out origin-left ${
+                      isActive ? "scale-x-100" : "scale-x-0"
+                    }`} 
+                  />
+                  
+                  <span className="block text-[9px] font-mono text-primary/80 mb-0.5 font-bold tracking-widest">
+                    //{m.code}
+                  </span>
+                  <span 
+                    className="text-sm font-bold tracking-tight uppercase text-neutral-700 block transition-transform duration-300"
+                    style={{ transform: isActive ? "translateX(8px)" : "translateX(0px)" }}
+                  >
+                    {m.category}
+                  </span>
+                </div>
+              );
+            })}
+          </nav>
+        </div>
 
-  {/* 5. Navigation (Stays desktop-only) */}
-  <nav className="hidden lg:flex flex-col mt-12 border-l border-primary/10">
-    {modules.map((m, i) => (
-      <div key={m.code} className={`nav-item-${i} relative py-6 pl-8 opacity-30 transition-all duration-500`}>
-        <div className={`nav-line-${i} absolute left-0 top-0 h-full w-[3px] bg-primary scale-y-0 origin-top`} />
-        <span className="block text-[10px] font-mono mb-1">[{m.code}]</span>
-        <span className="text-xl font-bold uppercase">{m.category}</span>
-      </div>
-    ))}
-  </nav>
-</div>
-
-{/* for mobile view */}
-<div className="lg:hidden">
-  <div className="space-y-4 text-center">
-    <h2 className="text-[9px] md:text-[10px] uppercase tracking-[0.5em] md:tracking-[0.8em] text-primary font-black">
-      02 — STACK_SYNC
-    </h2>
-    <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9]">
-      The <br /> <span className="text-primary">CORE_INDEX</span>
-    </h3>
-  </div>
-</div>
-
-        <div className="skill-feed lg:w-2/3 space-y-20 md:space-y-64">
+        <div className="skill-feed w-full lg:w-3/4 space-y-24 md:space-y-24">
           {modules.map((module) => (
-            <div key={module.code} className="skill-block space-y-6 md:space-y-12">
-              <div className="p-5 md:p-8 bg-black/[0.02] dark:bg-white/[0.02] border-l-2 md:border-l-4 border-primary relative overflow-hidden">
-                <div className="lg:hidden flex items-center justify-between mb-4">
-                  <span className="text-[9px] font-mono text-primary border border-primary/20 px-2 py-0.5 uppercase">
+            <div key={module.code} className="skill-block space-y-8 relative">
+              
+              <div className="module-header flex items-center justify-between border-b border-neutral-200 pb-4">
+                <div className="flex items-baseline gap-4">
+                  <span className="text-xs font-mono text-primary font-bold bg-white px-2 py-0.5 border border-neutral-200 rounded-sm shadow-sm">
                     {module.code}
                   </span>
-                  <div className="h-[1px] flex-grow mx-4 bg-primary/10" />
+                  <h4 className="text-xl md:text-2xl font-black uppercase tracking-tight text-neutral-900">
+                    {module.category}
+                  </h4>
                 </div>
-                
-                <h4 className="text-lg font-bold uppercase mb-3 lg:hidden tracking-tight leading-tight">
-                  {module.category.replace(/_/g, " ")}
-                </h4>
-                
-                <p className="text-base md:text-2xl font-light leading-relaxed italic opacity-70">
-                  "{module.description}"
+                <span className="hidden sm:inline text-[10px] font-mono text-neutral-400 tracking-widest uppercase">
+                  METRIC_OK //
+                </span>
+              </div>
+
+              <div className="module-desc relative pl-6 border-l border-dashed border-neutral-300 max-w-3xl">
+                <p className="text-base md:text-lg text-neutral-600 font-normal leading-relaxed">
+                  {module.description}
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {module.skills.map((skill) => (
                   <div
                     key={skill}
-                    className="skill-pill group flex items-center justify-between p-4 md:p-6 border border-primary/5 dark:border-white/5 bg-black/[0.01] dark:bg-white/[0.01] hover:border-primary transition-all duration-300"
+                    className="skill-pill group relative flex items-center justify-between p-4 bg-white border border-neutral-200/80 rounded-sm hover:border-neutral-400/80 shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden cursor-default hover:-translate-y-0.5"
                   >
-                    <span className="text-[10px] md:text-sm font-bold tracking-widest uppercase truncate">
-                      {skill}
-                    </span>
-                    <div className="w-1 h-1 rotate-45 bg-primary/30 group-hover:bg-primary transition-colors" />
+                    <div className="absolute top-0 right-0 w-1 bg-primary h-0 group-hover:h-full transition-all duration-300 ease-out" />
+                    
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-[10px] font-mono text-neutral-400 tracking-tighter uppercase">
+                        TECH_PRMT
+                      </span>
+                      <span className="text-sm font-bold tracking-wide uppercase text-neutral-800 group-hover:text-black transition-colors duration-200">
+                        {skill}
+                      </span>
+                    </div>
+
+                    <div className="w-1.5 h-1.5 bg-neutral-200 group-hover:bg-primary group-hover:scale-125 rounded-full transition-all duration-300 ease-out" />
                   </div>
                 ))}
               </div>
+
             </div>
           ))}
         </div>
+
       </div>
 
-      <div className="absolute right-[-5%] bottom-[-5%] text-[35vw] font-black opacity-[0.02] pointer-events-none select-none leading-none">
-        SYS
+      <div className="absolute left-4 bottom-4 text-[10vw] font-black opacity-[0.03] pointer-events-none select-none tracking-tighter font-mono leading-none text-neutral-900">
+        INDEX_LAYER_02
       </div>
     </section>
   );

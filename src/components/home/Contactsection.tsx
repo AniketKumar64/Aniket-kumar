@@ -148,7 +148,7 @@ const ContactSection = () => {
         </div>
 
         {/* BOTTOM: MAGNETIC BUTTON AREA */}
-        <div className="mt-32 flex flex-col md:flex-row justify-between items-center gap-12 border-t border-[#030305]/10 dark:border-[#d6e4ff]/10 pt-16">
+        <div className="mt-32 flex flex-col md:flex-row  justify-between items-center gap-12 border-t border-[#030305]/10 dark:border-[#d6e4ff]/10 pt-16">
           <div className="text-left">
             <div className="text-2xl font-black tracking-tighter">ANIKET KUMAR MOURYA.</div>
             <p className="text-[9px] font-mono uppercase tracking-[0.6em] opacity-40 mt-2">© 2026 Independent Protocol</p>
@@ -164,7 +164,7 @@ const ContactSection = () => {
      
 
       {/* BACKGROUND WATERMARK */}
-      <div className="absolute -right-10 -bottom-20 text-[25vw] font-black opacity-[0.02] pointer-events-none select-none text-primary dark:text-primary tracking-tighter">
+      <div className="absolute -right-10 -bottom-20 text-[25vw] font-black opacity-[0.05] pointer-events-none select-none text-primary dark:text-primary tracking-tighter">
         CONNECT
       </div>
     </section>
