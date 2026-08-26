@@ -17,7 +17,7 @@ export const Hero = () => {
   const socials = [
     {
       name: "LINKEDIN",
-      url: "https://linkedin.com/in/AniketKumarMourya",
+      url: "https://www.linkedin.com/in/aniketkumar64",
       icon: FaLinkedin,
     },
     {
